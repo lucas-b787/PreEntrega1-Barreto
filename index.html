@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Permanent+Marker&family=Sofadi+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1 id="titulo">Bienvenidos</h1>
+    </header>
+    <main>
+       <h2>Ingrese cantidad de cuotas y monto a solicitar pra simular su prestamo</h2>
+           <form action="" id="formPrestamo">
+               <div id="prestamo">
+                    <label for="monto">monto a solicitar</label>
+                    <input type="text" id="monto">
+                    <label for="cuota">cantidad de cuotas</label>
+                    <input type="text" id="cuota">
+                    <button id="simular">Simular</button>
+                    <div>
+                      <p id="resultado"></p>
+                    </div>
+              </div>
+           </form>
+       <h2>Ingresa banco que buscas</h2>
+           <form action="">
+                <div id="filtrar_banco">
+                    <input type="text" id="filtra" placeholder="usa MAYUSCULA">
+                    <button id="filtrar">Filtrar banco</button>
+                    <p id="error_filtrar"></p>
+                </div>
+           </form>
+       <h2>Inserte datos de banco a agregar</h2>
+            <form action="">
+                <div id="agregar_banco">
+                 <label for="nombre">ingresa el nombre del Banco</label>
+                  <input type="text" id="nombre"><br>
+                  <label for="interestradicional">ingresa intereses por prestamo tradicional</label>
+                 <input type="text" id="interestradicional"><br>
+                 <label for="interesesUVA">ingresa intereses por prestamo UVA</label>
+                 <input type="text" id="interesesUVA"><br>
+                 <label for="montomaximo">ingrese monto maximo del prestamo</label>
+                  <input type="text" id="montomaximo"><br>
+                 <button id="agregar">Agregar banco</button>
+                 <p id="error_agregar"></p>
+                </div>
+            </form>
+        <h2>Deje sus datos y nos contactaremos a la brevedad</h2>
+        <div id="formulario">
+            <input type="text" id="inputNombre" placeholder="ingresa tu nombre"> 
+            <input type="text" id="inputCelular" placeholder="ingresa tu celular"> 
+            <input type="text" id="inputEmail" placeholder="ingresa tu email">    
+            <button id="boton">Enviar</button>    
+            <button id="botonRecuperar">recuperar datos</button>    
+            <button id="limpiar">limpiar localStorage</button>
+        </div>
+
+    </main>
+
 
     <script src="main.js"></script>
 </body>
