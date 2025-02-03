@@ -46,7 +46,7 @@ function simularPrestamo(e,monto){
       }
   }
   function calcularprestamo(){ 
-      const monto = document.getElementById("monto").Value;// nose porque no toma los datos del input
+      const monto = document.getElementById("monto").Value;
       prestamo(monto)
   }
 
@@ -80,7 +80,11 @@ function simularPrestamo(e,monto){
         let myjson=JSON.stringify(resultado);
         document.getElementById("pFiltrar").innerHTML= myjson
       }else{
-        document.getElementById("pFiltrar").innerHTML="no se encontro dicho banco"
+        Swal.fire({
+          icon: "error",
+          title: "no se encontro dicho banco",
+          text: "intenta escribiendo con MAYUSCULAS",
+        });
       }
   }
   
@@ -94,16 +98,24 @@ function simularPrestamo(e,monto){
     interesUVA= parseInt(formAgregar.interesUVA.value);
     montomaximo= parseInt(formAgregar.montoMaximo.value);
     document.getElementById("pAgregar").innerHTML
-    formPrestamo.reset();
+    formAgregar.reset();
 
   if(isNaN(interestradicional) || isNaN(interesUVA) || isNaN(montomaximo) || nombre == ""){
-      document.getElementById("pAgregar").innerHTML="por favor ingrese valores validos" 
+      Swal.fire({
+        icon: "warning",
+        title: "ERROR",
+        text: "por favor ingrese valores validos",
+      });
       return
   }
   let banco = new Banco (nombre,interestradicional,interesUVA,montomaximo)
   lista.push(banco)
   console.table(lista)
-  document.getElementById("pAgregar").innerHTML="Banco agregado, ver en consola"
+  Swal.fire({
+    icon: "success",
+    title: "BANCO AGREGADO",
+    text: "ver la consola",
+  });
   }
 
 //botonera
@@ -132,10 +144,11 @@ let agregar= document.getElementById("agregar")
     localStorage.setItem(`celular`,inputCelular.value)
     localStorage.setItem(`email`,inputEmail.value)
 
-    const recuperarJson = JSON.parse(localStorage.getItem("datosDelFormulario"));//dice esto en la con sola......VM661:1 Uncaught SyntaxError: "[object Object]" is not valid JSONat JSON.parse (<anonymous>)
-    inputNombre.value=recuperarJson.nombre //aparece en consola....main.js:119 Uncaught TypeError: Cannot read properties of null (reading 'nombre')at HTMLButtonElement.guardarFormulario (main.js:119:37)
+    const recuperarJson = JSON.parse(localStorage.getItem("datosDelFormulario"));//dice esto en la consola......VM661:1 Uncaught SyntaxError: "[object Object]" is not valid JSONat JSON.parse (<anonymous>)
+    inputNombre.value=recuperarJson.nombre //aparece en consola....main.js:119 Uncaught TypeError: Cannot read properties of null (reading 'nombre')at HTMLButtonElement.guardarFormulario (main.js:148:37)
     inputCelular.value=recuperarJson.celular
     inputEmail.value=recuperarJson.email
+
  console.log(recuperarJson)
   
       const datosDelFormulario = {
@@ -146,7 +159,7 @@ let agregar= document.getElementById("agregar")
   
       let resultado = JSON.stringify(datosDelFormulario)
       console.log(resultado)
-      localStorage.setItem("datosDelFormulario", datosDelFormulario)     
+      localStorage.setItem("datosDelFormulario", datosDelFormulario)    
   }
   
   botonEnviar.addEventListener(`click`,guardarFormulario)
@@ -157,8 +170,43 @@ let agregar= document.getElementById("agregar")
      inputNombre.value=localStorage.getItem(`nombre`)
      inputCelular.value = localStorage.getItem(`celular`)
      inputEmail.value = localStorage.getItem(`email`)
+     event.preventDefault()
   }
     
   function limpiarLocalStorage(){
       localStorage.clear()
   }
+
+
+  /*
+//esta es la pagina de la api https://bluelytics.com.ar/#!/api
+let url = 'https://api.bluelytics.com.ar/v2/latest'
+
+  const dolarApi = document.getElementById('dolar-api');
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const dolars = data.results;
+
+    dolars.forEach((dolar) => {
+      fetch(dolar.url)
+        .then(response => response.json())
+        .then(dolarData => {
+          const precioDolar = document.createElement('div');
+          precioDolar.innerHTML = `
+            <h2>${dolarData.last_update.oficial.value_avg}</h2>
+            <H2>${dolarData.last_update.oficial.value_buy}</H2>
+           
+          `;
+          dolarApi.appendChild(precioDolar);
+        })
+        .catch(error => {
+          console.error('Ha ocurrido un error al obtener los datos del dolar:', error);
+        });
+    });
+  })
+  .catch(error => {
+    console.error('Ha ocurrido un error al obtener la lista de dolar:');
+  });
+  */
