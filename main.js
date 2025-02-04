@@ -177,6 +177,55 @@ let agregar= document.getElementById("agregar")
       localStorage.clear()
   }
 
+let url= 'https://dolarapi.com/v1/dolares/blue'
+const dolarApi = document.getElementById('dolar-api');
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    //const dolarData= data
+    fetch(url)
+    .then(res => res.json())
+    .then(dolarData=>{
+      const precioDolar= document.createElement(`div`);
+      
+      precioDolar.innerHTML=`
+      <h2>${dolarData}</h2>
+
+      `;
+      
+      dolarApi.appendChild(precioDolar);
+      
+    })
+  });
+  
+
+/*
+.then(data =>{
+  
+  const dolar= data.results;
+  dolar.forEach(blue => {
+    fetch(blue.url)
+    .then(res => res.json())
+    .then(dolarData=>{
+      const precioDolar= document.createElement(`div`);
+      precioDolar.innerHTML=`
+      <h2>${dolarData.latest}</h2>
+
+      `;
+      
+      dolarApi.appendChild(precioDolar);
+      
+    })
+    .catch(error => {
+      console.error('Ha ocurrido un error al obtener los datos del dolar:', error);
+    });
+  });
+})
+.catch(error => {
+  console.error('Ha ocurrido un error al obtener la lista de dolar:');
+});
+*/
 
   /*
 //esta es la pagina de la api https://bluelytics.com.ar/#!/api
@@ -196,7 +245,7 @@ fetch(url)
           const precioDolar = document.createElement('div');
           precioDolar.innerHTML = `
             <h2>${dolarData.last_update.oficial.value_avg}</h2>
-            <H2>${dolarData.last_update.oficial.value_buy}</H2>
+            <h2>${dolarData.last_update.oficial.value_buy}</h2>
            
           `;
           dolarApi.appendChild(precioDolar);
