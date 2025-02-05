@@ -184,12 +184,15 @@ fetch(url)
   .then(response => response.json())
   .then(data => {
       const precioDolar= document.createElement(`div`);
-      console.log(data) //devuelve los datos d ela api
+      console.log(data)
       precioDolar.innerHTML= `
-      <h2>${data}</h2> 
+      <h2>${"cotizacion del dolar es"}</h2> 
+      <p> ${"para la compra $"+data.compra}</p>
+      <p> ${"para la venta $"+data.venta}</p>
 
-      `; //no muestra los datos, solo [object object]
+      `;
       
       dolarApi.appendChild(precioDolar);
-      
+    
     })
+    

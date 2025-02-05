@@ -7,13 +7,12 @@ h1{
     font-family: "Nova Square", serif;
     /*font-family: "Permanent Marker", serif;*/
 }
-
 header{
     height: 50px;
 }
 main{
     text-align: center;
-    height: 500px;
+    height: 600px;
     color: rgb(8, 8, 8);
 }
 h2{
@@ -37,5 +36,5 @@ p{
 }
 #dolar-api{
     padding-top: 5px;
-    height: 60px;
+    height: 80px;
 }
