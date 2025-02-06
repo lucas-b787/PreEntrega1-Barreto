@@ -132,7 +132,7 @@ let agregar= document.getElementById("agregar")
   const inputNombre = document.getElementById("inputNombre")
   const inputCelular = document.getElementById("inputCelular")
   const inputEmail = document.getElementById("inputEmail")
-  const botonEnviar = document.getElementById("boton")
+  const botonEnviar = document.getElementById("botonEnviar")
   const botonRecuperar = document.getElementById("botonRecuperar")
   const botonLimpiar = document.getElementById("limpiar")
   const botonJSON= document.getElementById("btonJSON")
@@ -144,11 +144,11 @@ let agregar= document.getElementById("agregar")
     localStorage.setItem(`celular`,inputCelular.value)
     localStorage.setItem(`email`,inputEmail.value)
 
-    const recuperarJson = JSON.parse(localStorage.getItem("datosDelFormulario"));//dice esto en la consola......VM661:1 Uncaught SyntaxError: "[object Object]" is not valid JSONat JSON.parse (<anonymous>)
+    const recuperarJson = JSON.parse(localStorage.getItem("datosDelFormulario"));
     inputNombre.value=recuperarJson.nombre //aparece en consola....main.js:119 Uncaught TypeError: Cannot read properties of null (reading 'nombre')at HTMLButtonElement.guardarFormulario (main.js:148:37)
     inputCelular.value=recuperarJson.celular
     inputEmail.value=recuperarJson.email
-
+    preventDefault
  console.log(recuperarJson)
   
       const datosDelFormulario = {
@@ -159,11 +159,11 @@ let agregar= document.getElementById("agregar")
   
       let resultado = JSON.stringify(datosDelFormulario)
       console.log(resultado)
-      localStorage.setItem( "resultado", resultado)    
+      localStorage.setItem( "resultado", resultado) 
   }
   
   botonEnviar.addEventListener(`click`,guardarFormulario)
-  botonRecuperar.addEventListener(`click`,recuperarDatosDelFormulario,)
+  botonRecuperar.addEventListener(`click`,recuperarDatosDelFormulario)
   botonLimpiar.addEventListener(`click`,limpiarLocalStorage)
   
   function recuperarDatosDelFormulario(){
@@ -186,9 +186,9 @@ fetch(url)
       const precioDolar= document.createElement(`div`);
       console.log(data)
       precioDolar.innerHTML= `
-      <h2>${"cotizacion del dolar es"}</h2> 
-      <p> ${"para la compra $"+data.compra}</p>
-      <p> ${"para la venta $"+data.venta}</p>
+      <h2>${"la cotizacion del dolar es"}</h2> 
+      <p> ${"para la compra $"+data.compra+" , para la venta $"+data.venta}</p>
+      <p> ${"ultima actualizacion  "+data.fechaActualizacion}</p>
 
       `;
       
