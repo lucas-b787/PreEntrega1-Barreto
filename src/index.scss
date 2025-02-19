@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+/*header*/
+header{
+  box-sizing: border-box;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  padding-top: 5px;
+  padding-left: 5px;
+}
+nav{
+  box-sizing: border-box;
+  height: 50px;
+  width: 100%;
+  background-color: #a5a4a1;
+  font-family: "Permanent Marker", cursive;
+  
+  ul{
+      display: flex;
+      list-style-type: none;
+      box-sizing: border-box;
+      
+      li{
+          height: 50px;
+          display: inline-flex;
+          width: 24%;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          
+          a{
+              text-decoration: none;
+              color: black;
+          }
+      }
+      .Carrito{
+        height: 30px;
+        justify-content: flex-end;
+      }
+      .botonCarrito{
+        padding: 5px 25px 5px 25px;
+      }
+  }
+}
