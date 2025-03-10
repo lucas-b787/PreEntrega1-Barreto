@@ -10,10 +10,10 @@ header{
   background-size: cover;
 }
 h1{
-  padding-top: 5px;
+  padding-top: 13px;
   padding-left: 5px;
 }
-nav{
+.navbar{
   box-sizing: border-box;
   height: 50px;
   width: 100%;
@@ -34,9 +34,12 @@ nav{
           align-items: center;
           box-sizing: border-box;
           
-          a{
+          .link-Navbar{
               text-decoration: none;
               color: black;
+          }
+          .link-Navbar.active{
+            color:rgb(169, 56, 56);
           }
       }
       .Carrito{
@@ -45,6 +48,7 @@ nav{
       }
       .botonCarrito{
         padding: 5px 25px 5px 25px;
+        
       }
   }
 }
