@@ -8,22 +8,22 @@ const NavBar = () => {
       <header>
         <nav className="navbar">
           <ul>
-            <Link to="/" className="link-Navbar">
-              <h1 className="text-3xl font-bold underline">CERVELANDIA</h1>
-            </Link>
+            <NavLink to="/" className="link-Navbar">
+              <h1 className="text-3xl font-bold underline">de tuto</h1>
+            </NavLink>
             <li>
-              <Link to="/nuestras-cervezas" className="link-Navbar">
-                NUESTRAS CERVEZAS
-              </Link>
-            </li>
-            <li>
-              <NavLink to="/contacto" className="link-Navbar">
-                CONTACTO
+              <NavLink to="/category/groceries" className="link-Navbar">
+                ALIMENTOS
               </NavLink>
             </li>
             <li>
-              <NavLink to="/para-evento" className="link-Navbar">
-                PARA EVENTOS
+              <NavLink to="/category/fragrances" className="link-Navbar">
+                PERFUMERIA
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/furniture" className="link-Navbar">
+                HOGAR
               </NavLink>
             </li>
             <Link to="/carrito" className="link-Navbar">
