@@ -6,16 +6,18 @@ import Item from "./Item";
 const ItemListContainer = () => {
   const [response, setResponse] = useState([]);
   const params = useParams();
+  const category = "categories";
   const url = "https://dummyjson.com/products";
+  console.log(`${url}/${category}`);
 
   useEffect(() => {
-    fetch(params.category === undefined ? url : `/${url.category}`)
+    fetch(params.id === undefined ? url : `${params.id}.json`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res.products);
         setResponse(res.products);
       });
-  }, [params.category]);
+  }, [params.id]);
 
   return (
     <div className="ItemList-grid">
