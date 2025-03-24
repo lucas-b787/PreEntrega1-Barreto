@@ -6,12 +6,10 @@ import Item from "./Item";
 const ItemListContainer = () => {
   const [response, setResponse] = useState([]);
   const params = useParams();
-  const category = "categories";
   const url = "https://dummyjson.com/products";
-  console.log(`${url}/${category}`);
 
   useEffect(() => {
-    fetch(params.id === undefined ? url : `${params.id}.json`)
+    fetch(params.id !== undefined ? `${url}/category/${params.id}` : `${url}`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res.products);
@@ -27,4 +25,5 @@ const ItemListContainer = () => {
     </div>
   );
 };
+
 export default ItemListContainer;

@@ -12,7 +12,7 @@ const Item = (props) => {
           className="product-carrito_img"
         />
         <p>${props.products.price}</p>
-        <Link to={`/producto/${props.products.id}`}>ver detalles</Link>
+        <Link to={`/products/${props.products.id}`}>ver detalles</Link>
       </article>
     </div>
   );

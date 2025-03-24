@@ -14,7 +14,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 viewTransition
-                to="/categories/groceries"
+                to="/category/groceries"
                 className="link-Navbar"
               >
                 ALIMENTOS
@@ -23,7 +23,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 viewTransition
-                to="/categories/fragrances"
+                to="/category/fragrances"
                 className="link-Navbar"
               >
                 PERFUMERIA
@@ -32,7 +32,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 viewTransition
-                to="/categories/furniture"
+                to="/category/furniture"
                 className="link-Navbar"
               >
                 HOGAR
