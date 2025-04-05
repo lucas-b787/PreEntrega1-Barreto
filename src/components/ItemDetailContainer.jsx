@@ -10,9 +10,9 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     fetch(`${url}/${params.id}`)
       .then((res) => res.json())
-      .then(console.log)
       .then((res) => {
-        setProduct(res.product);
+        console.log(res);
+        setProduct(res);
       });
   }, [params.id]);
 
