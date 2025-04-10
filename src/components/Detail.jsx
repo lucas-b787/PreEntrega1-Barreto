@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import toast from "react-hot-toast";
 
@@ -7,7 +6,6 @@ const Detail = (props) => {
   const addCart = useContext(CartContext);
   const clickAgregar = async () => {
     addCart.agregarProd(props.product);
-    //toast("se agrego correctamente");
     toast.success("se agrego correctamente!", {
       id: "clipboard",
     });

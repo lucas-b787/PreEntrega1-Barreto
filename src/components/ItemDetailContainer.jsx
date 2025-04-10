@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Detail from "./Detail";
 import { useParams } from "react-router-dom";
+import { app } from "../firebaseConfig";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const params = useParams();
-  const url = "https://dummyjson.com/products";
 
   useEffect(() => {
-    fetch(`${url}/${params.id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setProduct(res);
+    const db = getFirestore(app);
+    const productosCollection = collection(db, "productos");
+    const miFiltro = doc(productosCollection, params.id);
+    const miConsulta = getDoc(miFiltro);
+
+    miConsulta
+      .then((respuesta) => {
+        console.log(respuesta.data());
+        setProduct(respuesta.data());
+      })
+      .catch((error) => {
+        console.error("Error al obtener productos:", error);
       });
   }, [params.id]);
 
