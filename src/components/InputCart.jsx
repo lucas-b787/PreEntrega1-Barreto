@@ -1,0 +1,21 @@
+import { useRef } from "react";
+
+const InputCart = (props) => {
+  const inputRef = useRef();
+
+  const handleChange = (event) => {
+    props.onInputValue(inputRef.current.value);
+  };
+
+  return (
+    <input
+      onChange={handleChange}
+      type="text"
+      id="nombre"
+      name="nombre"
+      ref={inputRef}
+    />
+  );
+};
+
+export default InputCart;

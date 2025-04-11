@@ -10,13 +10,12 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const db = getFirestore(app);
-    const productosCollection = collection(db, "productos");
+    const productosCollection = collection(db, "products");
     const miFiltro = doc(productosCollection, params.id);
     const miConsulta = getDoc(miFiltro);
 
     miConsulta
       .then((respuesta) => {
-        console.log(respuesta.data());
         setProduct(respuesta.data());
       })
       .catch((error) => {

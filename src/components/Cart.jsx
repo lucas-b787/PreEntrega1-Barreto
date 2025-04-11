@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import toast from "react-hot-toast";
+import FormBuy from "./FormBuy";
 
 const Cart = () => {
   const valorContext = useContext(CartContext);
-  console.log(valorContext);
 
   const uniqueItems = valorContext.cart.reduce((acc, item) => {
     const existing = acc.find((i) => i.id === item.id);
@@ -29,13 +29,6 @@ const Cart = () => {
     });
   };
 
-  const emptyCart = () => {
-    valorContext.handleEmpty();
-    toast.error("se vacio el carrito!", {
-      id: "clipboard",
-    });
-  };
-
   return (
     <div>
       <h2>Tu pedido</h2>
@@ -55,8 +48,8 @@ const Cart = () => {
         })}
       </ul>
       <p>Total: ${valorContext.precioTotal.toFixed(2)}</p>
-      <button>comprar</button> -{" "}
-      <button onClick={emptyCart}>eliminar carrito</button>
+
+      <FormBuy />
     </div>
   );
 };
